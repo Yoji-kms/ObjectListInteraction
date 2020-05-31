@@ -2,7 +2,6 @@ package com.yoji.objectlistinteraction;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-//import android.widget.ArrayAdapter;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
@@ -23,7 +22,7 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    SwipeRefreshLayout swipeRefreshLayout;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     private final String TEXT_KEY = "text_key";
     private final String NUM_OF_SYMBOL_KEY = "num_of_symbol_key";
@@ -77,17 +76,10 @@ public class MainActivity extends AppCompatActivity {
 
         listSimpleAdapter = createSimpleAdapter();
 
-//        BaseAdapter listContentAdapter = createAdapter(values);
-
         list.setAdapter(listSimpleAdapter);
         list.setOnItemClickListener(listOnItemClickListener);
         swipeRefreshLayout.setOnRefreshListener(swipeOnRefreshListener);
     }
-
-//    @NonNull
-//    private BaseAdapter createAdapter(String[] values) {
-//        return new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, values);
-//    }
 
     private BaseAdapter createSimpleAdapter() {
         return new SimpleAdapter(this, content, R.layout.item_to_display,
